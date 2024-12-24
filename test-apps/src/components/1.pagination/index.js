@@ -18,6 +18,7 @@ export default function Pagination({ currentPage, totalPages = 10, onPageChange 
             </button>
             {generateNumberOfPages().map((pageNo) => (
                 <button
+                    key={pageNo}
                     className={`pagination-btn ${currentPage === pageNo ? 'active' :''}`}
                     onClick={() => onPageChange(pageNo)}
                 >
