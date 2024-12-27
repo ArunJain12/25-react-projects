@@ -4,6 +4,7 @@ import DigitalClock from './components/2.digital-clock';
 import CountDownTimerTest from './components/3.countdown-timer/test';
 import StepProgressBarTest from './components/4.step-progress-bar/test';
 import RandomQuoteGenerator from './components/5.random-quote-generator';
+import TooltipTest from './components/6.tooltip/test';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <CountDownTimerTest />
       <StepProgressBarTest />
       <RandomQuoteGenerator />
+      <TooltipTest />
     </div>
   );
 }
