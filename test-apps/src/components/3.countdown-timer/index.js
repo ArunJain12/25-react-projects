@@ -60,5 +60,3 @@ function CountDownTimer({ initialTime, onTimeFinish }) {
 }
 
 export default CountDownTimer;
-// 1hr = 60min
-// 1min = 60sec
