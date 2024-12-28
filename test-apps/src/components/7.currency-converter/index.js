@@ -9,14 +9,25 @@ function CurrencyConverter() {
     const [ exchangeRate, setExchangeRate ] = useState();
 
     async function fetchExchangeRate() {
-        const exchangeRateRequest = await fetch(`https://open.er-api.com/v6/latest/${fromCurrency}`, {
-            method: 'GET'
-        });
-        const result = await exchangeRateRequest.json();
-        // console.log('Response for Exchange Rate request: ', result);
-        const currentExchangeRate = result?.rates[toCurrency];
-        setExchangeRate(currentExchangeRate);
-        setConvertedAmount((amount * currentExchangeRate).toFixed(2));
+        try {
+            const exchangeRateRequest = await fetch(`https://open.er-api.com/v6/latest/${fromCurrency}`, {
+                method: 'GET'
+            });
+            const result = await exchangeRateRequest.json();
+            // console.log('Response for Exchange Rate request: ', result);
+            const currentExchangeRate = result?.rates[toCurrency];
+            if (exchangeRate) {
+                setExchangeRate(currentExchangeRate);
+                setConvertedAmount((amount * currentExchangeRate).toFixed(2));
+            }
+            else
+                throw new Error('No exchange rate found!');
+        }
+        catch (error) {
+            console.error('Error while making exchangeRate request: ', error);
+            setExchangeRate('');
+            setConvertedAmount(0);
+        }
     }
 
     useEffect(() => {
