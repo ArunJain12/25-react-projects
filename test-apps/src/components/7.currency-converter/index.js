@@ -23,6 +23,8 @@ function CurrencyConverter() {
         fetchExchangeRate();
     }, [amount, fromCurrency, toCurrency]);
 
+    if (!convertedAmount || !exchangeRate) return null;
+
     return (
         <div className="currency-converter">
             <h1>Currency Converter</h1>
