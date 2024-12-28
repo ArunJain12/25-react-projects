@@ -16,7 +16,7 @@ function CurrencyConverter() {
             const result = await exchangeRateRequest.json();
             // console.log('Response for Exchange Rate request: ', result);
             const currentExchangeRate = result?.rates[toCurrency];
-            if (exchangeRate) {
+            if (currentExchangeRate) {
                 setExchangeRate(currentExchangeRate);
                 setConvertedAmount((amount * currentExchangeRate).toFixed(2));
             }
