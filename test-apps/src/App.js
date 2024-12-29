@@ -6,6 +6,7 @@ import StepProgressBarTest from './components/4.step-progress-bar/test';
 import RandomQuoteGenerator from './components/5.random-quote-generator';
 import TooltipTest from './components/6.tooltip/test';
 import CurrencyConverter from './components/7.currency-converter';
+import FilterProductsByCategory from './components/8.filter-products';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <RandomQuoteGenerator />
       <TooltipTest />
       <CurrencyConverter />
+      <FilterProductsByCategory />
     </div>
   );
 }
