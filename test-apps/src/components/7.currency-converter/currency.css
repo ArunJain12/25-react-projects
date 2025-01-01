@@ -18,16 +18,16 @@
     align-items: center;
 }
 
-.input-container input {
+.currency-converter .input-container input {
     width: 80%;
 }
 
-.input-container select {
+.currency-converter .input-container select {
     width: 20%;
 }
 
-.input-container input, 
-.input-container select {
+.currency-converter .input-container input, 
+.currency-converter .input-container select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
