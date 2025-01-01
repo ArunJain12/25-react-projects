@@ -8,6 +8,7 @@ import TooltipTest from './components/6.tooltip/test';
 import CurrencyConverter from './components/7.currency-converter';
 import FilterProductsByCategory from './components/8.filter-products';
 import TipCalculator from './components/9.tip-calculator';
+import ProgessBar from './components/10.progress-bar';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <CurrencyConverter />
       <FilterProductsByCategory />
       <TipCalculator />
+      <ProgessBar />
     </div>
   );
 }
