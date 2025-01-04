@@ -11,6 +11,7 @@ import TipCalculator from './components/9.tip-calculator';
 import ProgessBar from './components/10.progress-bar';
 import MusicPlayer from './components/11.music-player';
 import BMICalculator from './components/12.bmi-calculator';
+import ButtonRippleEffect from './components/13.button-ripple-effect';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <ProgessBar />
       <MusicPlayer />
       <BMICalculator />
+      <ButtonRippleEffect />
     </div>
   );
 }
