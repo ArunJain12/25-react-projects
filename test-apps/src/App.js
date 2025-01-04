@@ -9,6 +9,7 @@ import CurrencyConverter from './components/7.currency-converter';
 import FilterProductsByCategory from './components/8.filter-products';
 import TipCalculator from './components/9.tip-calculator';
 import ProgessBar from './components/10.progress-bar';
+import MusicPlayer from './components/11.music-player';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <FilterProductsByCategory />
       <TipCalculator />
       <ProgessBar />
+      <MusicPlayer />
     </div>
   );
 }
