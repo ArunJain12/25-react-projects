@@ -12,6 +12,8 @@ import ProgessBar from './components/10.progress-bar';
 import MusicPlayer from './components/11.music-player';
 import BMICalculator from './components/12.bmi-calculator';
 import ButtonRippleEffect from './components/13.button-ripple-effect';
+import DragAndDropFeature from './components/14.drag-and-drop';
+import FormValidation from './components/15.simple-form-validation';
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
       <MusicPlayer />
       <BMICalculator />
       <ButtonRippleEffect />
+      <DragAndDropFeature />
     </div>
   );
 }
