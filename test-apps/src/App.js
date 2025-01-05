@@ -33,6 +33,7 @@ function App() {
       <BMICalculator />
       <ButtonRippleEffect />
       <DragAndDropFeature />
+      <FormValidation />
     </div>
   );
 }
