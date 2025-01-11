@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./draganddrop.css";
+import { parseTodos } from "./utils";
+import todosJson from "./todos.json";
 
 function DragAndDropFeature() {
     const [ isLoading, setIsLoading ] = useState(false);
     const [ todos, setTodos ] = useState([]);
 
-    async function fetchListOfTodos(params) {
+    async function fetchListOfTodos() {
         try {
             setIsLoading(true);
             const apiResponse = await fetch('https://dummyjson.com/todos?limit=10&skip=0');
@@ -13,29 +15,25 @@ function DragAndDropFeature() {
             if (result && result.todos && result.todos.length > 0) {
                 // console.log('Fetched Todos: ', result.todos);
                 setIsLoading(false);
-                const updatedTodos = result.todos.map(todoItem => ({
-                    ...todoItem,
-                    status: todoItem.completed === true ? 'completed' : 'wip'
-                }));
-                setTodos(updatedTodos);
+                setTodos(parseTodos(result.todos));
             }
             else {
-                throw new Error('No Todos Found.')
+                throw new Error('No Todos Found.');
             }
         }
         catch(e) {
             console.error('Error fetching todos: ', e);
             setIsLoading(false);
-            setTodos([]);
+            // use dummy todos if API fails
+            setTodos(parseTodos(todosJson));
         }
     }
-
     useEffect(() => {
         fetchListOfTodos();
     }, []);
 
-    function onDragStart(e, id) {
-        e.dataTransfer.setData('id', id);
+    function onDragStart(event, id) {
+        event.dataTransfer.setData('id', id);
     }
 
     function onDrop(event, status) {
@@ -43,7 +41,6 @@ function DragAndDropFeature() {
         const updatedTodos = todos.map(todoItem => {
             if (todoItem.id.toString() === id) {
                 todoItem.status = status;
-                todoItem.completed = !todoItem.completed;
             }
             return todoItem;
         });
@@ -88,7 +85,7 @@ function DragAndDropFeature() {
                         {renderTodos().wip}
                     </div>
                 </div>
-                <div
+                <div 
                     onDrop={(event) => onDrop(event, 'completed')}
                     onDragOver={(event) => event.preventDefault()}
                     className="completed"
