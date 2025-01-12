@@ -16,6 +16,7 @@ import DragAndDropFeature from './components/14.drag-and-drop';
 import FormValidation from './components/15.simple-form-validation';
 import FileUpload from './components/16.file-upload';
 import Quiz from './components/17.quiz-app';
+import PdfViewer from './components/19.pdf-viewer';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
       <FormValidation />
       <FileUpload />
       <Quiz />
+      <PdfViewer />
     </div>
   );
 }
