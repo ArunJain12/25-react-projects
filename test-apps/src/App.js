@@ -19,6 +19,7 @@ import Quiz from './components/17.quiz-app';
 import NestedComments from './components/18.nested-comments';
 import PdfViewer from './components/19.pdf-viewer';
 import DebounceApiCall from './components/20.debounce-api-call';
+import SortData from './components/21.sort-data';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
       <NestedComments />
       <PdfViewer />
       <DebounceApiCall />
+      <SortData />
     </div>
   );
 }
