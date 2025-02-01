@@ -13,7 +13,6 @@ function RandomQuoteGenerator() {
             });
             const apiResponse = await apiRequest.json();
             // console.log('api', apiResponse);
-            setIsLoading(false);
             if (apiResponse) {
                 setQuote({
                     quoteAuthor: apiResponse.author,
@@ -21,6 +20,7 @@ function RandomQuoteGenerator() {
                 });
             }
             else setQuote(null);
+            setIsLoading(false);
         }
         catch(error) {
             setIsLoading(false);

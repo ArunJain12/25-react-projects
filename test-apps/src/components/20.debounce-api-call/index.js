@@ -15,12 +15,11 @@ function DebounceApiCall() {
             const result = await apiResponse.json();
 
             if (result && result.recipes && result.recipes.length > 0) {
-                setIsLoading(false);
                 setRecipes(result.recipes);
+                setIsLoading(false);
             }
             else {
-                setIsLoading(false);
-                setRecipes([]);
+                throw new Error('No Recipes Found.');
             }
         }
         catch(err) {

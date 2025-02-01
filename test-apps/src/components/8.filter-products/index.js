@@ -15,8 +15,8 @@ function FilterProductsByCategory() {
             });
             const productsResponse = await makeProductsApi.json();
             // console.log('Fetched Products: ', productsResponse);
-            setIsLoading(false);
             setProducts(productsResponse?.products);
+            setIsLoading(false);
         }
         catch (error) {
             // console.log('Error Fetching Products: ', error);

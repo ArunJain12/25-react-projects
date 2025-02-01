@@ -14,8 +14,8 @@ function DragAndDropFeature() {
             const result = await apiResponse.json();
             if (result && result.todos && result.todos.length > 0) {
                 // console.log('Fetched Todos: ', result.todos);
-                setIsLoading(false);
                 setTodos(parseTodos(result.todos));
+                setIsLoading(false);
             }
             else {
                 throw new Error('No Todos Found.');
