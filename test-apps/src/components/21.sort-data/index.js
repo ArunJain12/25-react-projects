@@ -57,7 +57,7 @@ function SortData() {
             <ul>
                 {users && users.length > 0
                     ? users.map((userItem) => (
-                        <li>
+                        <li key={userItem.id}>
                             <p>{userItem.firstName}</p>
                         </li>
                     ))
