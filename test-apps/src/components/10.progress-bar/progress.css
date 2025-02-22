@@ -31,13 +31,13 @@
     border-style: none;
     position: relative;
     z-index: -1;
+    overflow: hidden;
 }
 
 .progress-bar-container .progress-bar .wrapper .inner-wrapper {
     display: grid;
     place-items: center;
     background-color: rgb(123, 220, 130);
-    color: #fff;
     height: 30px;
     border-radius: 20px;
     border-style: none;
@@ -45,7 +45,7 @@
     z-index: 100;
     position: absolute;
     font-size: 18px;
-    transition: 1.5s ease 0.3s;
+    transition: 1.5s ease-in 0.3s;
 }
 
 .progress-bar-container .progress-bar .error-wrapper {

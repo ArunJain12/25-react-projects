@@ -6,9 +6,10 @@ function ProgessBar() {
     const [ errorMsg, setErrorMsg ] = useState('');
 
     function handleProgessPercent(e) {
-        setProgressPercent(e.target.value);
-        if (e.target.value < 0) {
-            setErrorMsg('Please enter a value greater than 0');
+        const progressNum = e.target.value;
+        setProgressPercent(progressNum);
+        if (String(progressNum).includes('-')) {
+            setErrorMsg('Please enter only positive values greater than or equal to 0');
             return;
         }
         else if (e.target.value > 100) {
@@ -23,16 +24,20 @@ function ProgessBar() {
             <h1>Custom Progress Bar</h1>
             <div className="progress-bar">
                 <div className={`${!errorMsg ? 'wrapper' : 'error-wrapper'}`}>
-                    {progressPercent >= 0 && progressPercent <= 100
-                        ? (
+                    {String(progressPercent).includes('-') || progressPercent > 100
+                        ? <p className="error-msg">{errorMsg}</p>
+                        : (
                             <div 
                                 className="inner-wrapper"
-                                style={{ width: `${progressPercent}%`}}
+                                style={{ 
+                                    width: `${progressPercent}%`,
+                                    color: `${progressPercent >= 4 ? 'white': 'black'}`
+                                }}
+                                role="progressbar"
                             >
-                                {progressPercent}
+                                {progressPercent}%
                             </div>
                         )
-                        : <p className="error-msg">{errorMsg}</p>
                     }
                 </div>
             </div>
@@ -42,6 +47,7 @@ function ProgessBar() {
                     type="number"
                     value={progressPercent}
                     onChange={handleProgessPercent}
+                    aria-label="progressPercentage"
                 />
             </div>
         </div>
