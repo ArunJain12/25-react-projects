@@ -22,6 +22,7 @@ import DebounceApiCall from './components/20.debounce-api-call';
 import SortData from './components/21.sort-data';
 import MovieApp from './components/22.movie-app';
 import GoogleOAuthLogin from './components/23.google-oauth-login';
+import StarRating from './components/24.star-rating';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
       <SortData />
       <MovieApp />
       <GoogleOAuthLogin />
+      <StarRating />
     </div>
   );
 }
