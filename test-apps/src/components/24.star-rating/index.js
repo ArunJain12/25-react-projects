@@ -31,7 +31,7 @@ export default function StarRating({ numberOfStars =  5 }) {
                             size={40}
                             onClick={() => handleOnClick(index)}
                             onMouseMove={() => handleMouseEnter(index)}
-                            onMouseLeave={() => handleMouseLeave(index)}
+                            onMouseLeave={handleMouseLeave}
                         />
                     )
                 })
