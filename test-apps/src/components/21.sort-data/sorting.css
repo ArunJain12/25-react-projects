@@ -29,3 +29,12 @@
     font-weight: bolder;
     font-size: 15px;
 }
+
+.sort-data-container .error-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bolder;
+    color: red;
+}

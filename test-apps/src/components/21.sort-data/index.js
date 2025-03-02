@@ -1,33 +1,17 @@
 import { useEffect, useState } from "react";
 import "./sorting.css";
+import useCustomFetch from "../../custom-hooks/useCustomFetch";
 
 function SortData() {
+    const { data, isLoading, error } = useCustomFetch('https://dummyjson.com/users', {});
     const [ users, setUsers ] = useState([]);
-    const [ isLoading, setIsLoading ] = useState(false);
     const [ sort, setSort ] = useState('ascending');
 
-    async function fetchListOfUsers() {
-        try {
-            setIsLoading(true);
-            const apiResponse = await fetch('https://dummyjson.com/users');
-            const result = await apiResponse.json();
-            if (result && result.users && result.users.length > 0) {
-                sort !== '' ? handleSort(result.users) : setUsers(result.users);
-                setIsLoading(false);
-            }
-            else
-                throw new Error('No Users found.');
-        }
-        catch(err) {
-            console.error('error fetching users: ', err);
-            setIsLoading(false);
-            setUsers([]);
-        }
-    }
-
     useEffect(() => {
-        fetchListOfUsers();
-    }, []);
+        if (data && data.users && data.users.length > 0) {
+            sort !== '' ? handleSort(data.users) : setUsers(data.users);
+        }
+    }, [data]);
 
     function handleSort(listOfUsers) {
         let copyUsers = [...listOfUsers];
@@ -54,6 +38,7 @@ function SortData() {
                     <option value="descending" id="descending">Sort Z - A</option>
                 </select>
             </div>
+            {isLoading ? <h3 className="error-text">Loading Data. Please wait!!</h3> : null}
             <ul>
                 {users && users.length > 0
                     ? users.map((userItem) => (
