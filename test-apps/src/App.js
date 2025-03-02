@@ -23,6 +23,7 @@ import SortData from './components/21.sort-data';
 import MovieApp from './components/22.movie-app';
 import GoogleOAuthLogin from './components/23.google-oauth-login';
 import StarRating from './components/24.star-rating';
+import ModalTest from './components/25.custom-modal-popup';
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
       <MovieApp />
       <GoogleOAuthLogin />
       <StarRating />
+      <ModalTest />
     </div>
   );
 }
